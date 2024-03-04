@@ -5,6 +5,7 @@ import FrontendLayout from "@/layout/FrontendLayout.vue";
 
 // 导入前台组件
 import CreateChat from "@/views/frontend/CreateChat.vue";
+import CreateImage from "@/views/frontend/CreateImage.vue";
 
 // 导入登录组件
 import LoginView from "@/views/login/LoginView.vue";
@@ -20,15 +21,19 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      // 前台页面
-      path: "/frontend",
-      name: "frontend",
+      path: "/ichatgpt",
+      name: "ichatgpt",
       component: FrontendLayout,
       children: [
         {
-          path: "createchat",
-          name: "createchat",
+          path: "chat",
+          name: "chat",
           component: () => CreateChat,
+        },
+        {
+          path: "image",
+          name: "image",
+          component: () => CreateImage,
         },
       ],
     },

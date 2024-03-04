@@ -1,7 +1,7 @@
 <template>
   <a-space direction="vertical" size="large" style="width: 100%">
-    <h1>机器人聊天</h1>
-    <h3>输入提问:</h3>
+    <h1>图片生成</h1>
+    <h3>描述信息:</h3>
     <a-mention
       v-model="text"
       :data="['Bytedance', 'Bytedesign', 'Bytenumner']"
@@ -9,7 +9,7 @@
       placeholder="enter something"
     />
     <a-button type="primary" @click="handleSubmit">提交</a-button>
-    <h3>输出答案:</h3>
+    <h3>输出结果:</h3>
     <a-mention
       v-model="outputText"
       :data="['Bytedance', 'Bytedesign', 'Bytenumner']"
@@ -22,28 +22,23 @@
 <script setup>
 import { reactive, ref } from "vue";
 import { Message } from "@arco-design/web-vue";
-import { CREATECHAT } from "@/api/chat";
+import { CREATEIMAGE } from "@/api/image";
 
 let text = ref("");
 let outputText = ref("");
 
 let data = reactive({
-  model: "gpt-3.5-turbo",
-  messages: [
-    {
-      role: "user",
-      content: text,
-    },
-  ],
+  model: "dall-e-3",
+  prompt: text,
 });
 
 const handleSubmit = async () => {
   try {
-    let resp = await CREATECHAT(data);
+    let resp = await CREATEIMAGE(data);
     if (resp.code === 200) {
-      outputText.value = resp.data.choices[0].messages.content;
+      outputText.value = resp.data.data[0].url;
     } else {
-      Message.error("获取聊天数据失败!");
+      Message.error("获取图片失败!");
     }
   } catch (err) {
     Message.error(err);
