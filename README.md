@@ -1,2 +1,2 @@
 # ichatgpt-web
-ichatgpt前端页面
+my chatgpt前端页面
