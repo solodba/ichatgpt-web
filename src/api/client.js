@@ -4,8 +4,8 @@ import axios from "axios";
 // 创建一个axios客户端
 const client = axios.create({
   baseURL: "http://127.0.0.1:8888",
-  timeout: 5000,
-  withCredentials: true,
+  timeout: 999999999999999,
+  // withCredentials: true,
 });
 
 // request拦截器, 主要把cookie传递给后端, 不然创建博客等操作无法操作
