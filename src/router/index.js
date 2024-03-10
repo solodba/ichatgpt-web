@@ -7,6 +7,7 @@ import FrontendLayout from "@/layout/FrontendLayout.vue";
 import CreateChat from "@/views/frontend/CreateChat.vue";
 import CreateImage from "@/views/frontend/CreateImage.vue";
 import UploadFile from "@/views/frontend/UploadFile.vue";
+import ListModel from "@/views/frontend/ListModel.vue";
 
 // 导入登录组件
 import LoginView from "@/views/login/LoginView.vue";
@@ -40,6 +41,11 @@ const router = createRouter({
           path: "file/upload",
           name: "file/upload",
           component: () => UploadFile,
+        },
+        {
+          path: "model",
+          name: "model",
+          component: () => ListModel,
         },
       ],
     },
