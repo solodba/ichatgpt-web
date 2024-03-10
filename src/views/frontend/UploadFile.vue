@@ -1,13 +1,10 @@
 <template>
   <a-space direction="vertical" :style="{ width: '100%' }">
-    <h1>文件上传</h1>
-    <a-upload
-      :file-list="form.maininformation"
-      :action="Activity"
-      @success="UploadFile"
-    />
+    <h1>上传文件</h1>
+    <a-upload action="/" />
   </a-space>
 </template>
+
 
 <script setup>
 function UploadFile(fileItem) {
