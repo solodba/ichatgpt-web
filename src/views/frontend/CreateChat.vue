@@ -28,7 +28,7 @@ let text = ref("");
 let outputText = ref("");
 
 let data = reactive({
-  model: "gpt-3.5-turbo",
+  model: "gpt-4-0125-preview",
   messages: [
     {
       role: "user",

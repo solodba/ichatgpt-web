@@ -10,12 +10,10 @@
     />
     <a-button type="primary" @click="handleSubmit">提交</a-button>
     <h3>输出结果:</h3>
-    <a-mention
-      v-model="outputText"
-      :data="['Bytedance', 'Bytedesign', 'Bytenumner']"
-      type="textarea"
-      placeholder=""
-    />
+    <a-image
+    width="200"
+    :src="outputText"
+  />
   </a-space>
 </template>
 
