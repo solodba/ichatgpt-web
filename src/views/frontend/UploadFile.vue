@@ -18,7 +18,7 @@
 <script setup>
 import { reactive } from "vue";
 import { Message } from "@arco-design/web-vue";
-import { WEEBUPLOADFILE } from "@/api/file";
+import { WEEBUPLOADFILE, UPLOADFILE } from "@/api/file";
 
 const fileList = reactive([]);
 const uploadUrl = "http://127.0.0.1:8888/ichatgpt/api/v1/file/upload"; // 替换为你的上传接口地址
@@ -37,11 +37,22 @@ const beforeUpload = (file) => {
   return true;
 };
 
+let data = reactive({
+  file_path: "file",
+  file_name: "finetuning.jsonl",
+  purpose: "fine-tune",
+});
+
 const uploadFiles = async () => {
   try {
-    let resp = await WEEBUPLOADFILE(fileList.value);
-    if (resp.ok) {
-      Message.info("上传文件成功!");
+    let webResp = await WEEBUPLOADFILE(fileList.value);
+    if (webResp.ok) {
+      let resp = await UPLOADFILE(data);
+      if (resp.code === 200) {
+        Message.info("上传文件成功!");
+      } else {
+        Message.error("上传文件失败!");
+      }
     } else {
       Message.error("上传文件失败!");
     }
