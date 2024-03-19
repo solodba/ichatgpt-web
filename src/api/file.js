@@ -19,4 +19,11 @@ const UPLOADFILE = (data) => {
   });
 };
 
-export { WEEBUPLOADFILE, UPLOADFILE };
+const LISTFILE = () => {
+  return client({
+    url: "/ichatgpt/api/v1/file",
+    method: "get",
+  });
+};
+
+export { WEEBUPLOADFILE, UPLOADFILE, LISTFILE };

@@ -42,7 +42,7 @@ onMounted(async () => {
         data.push(item);
       }
     } else {
-      Message.error("获取博客数据失败!");
+      Message.error("获取模型列表失败!");
     }
   } catch (err) {
     Message.error(err);
