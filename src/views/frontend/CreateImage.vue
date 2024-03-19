@@ -10,10 +10,7 @@
     />
     <a-button type="primary" @click="handleSubmit">提交</a-button>
     <h3>输出结果:</h3>
-    <a-image
-    width="200"
-    :src="outputText"
-  />
+    <a-image width="200" :src="outputText" />
   </a-space>
 </template>
 
