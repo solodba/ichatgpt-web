@@ -10,6 +10,7 @@ import UploadFile from "@/views/frontend/UploadFile.vue";
 import ListModel from "@/views/frontend/ListModel.vue";
 import ListFile from "@/views/frontend/ListFile.vue";
 import FineTune from "@/views/frontend/FineTune.vue";
+import CreateFinetuneChat from "@/views/frontend/CreateFinetuneChat.vue";
 
 // 导入登录组件
 import LoginView from "@/views/login/LoginView.vue";
@@ -58,6 +59,11 @@ const router = createRouter({
           path: "finetune",
           name: "finetune",
           component: () => FineTune,
+        },
+        {
+          path: "finetunechat",
+          name: "finetunechat",
+          component: () => CreateFinetuneChat,
         },
       ],
     },
